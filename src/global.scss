@@ -29,11 +29,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 .my-custom-class .popover-content{
     width: 300px;
     margin-top: 16px;
-    --box-shadow: none;
+    // --box-shadow: none;
 }
