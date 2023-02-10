@@ -1,4 +1,4 @@
-<ion-header class="ion-container">
+<ion-header class="ion-container ion-no-border">
 
   <ion-toolbar class="toolbar-wrapper">
     <div>
@@ -17,13 +17,34 @@
       </ion-buttons>
 
       <ion-grid>
-        <ion-row>
-          <ion-col size="auto"></ion-col>
-          <ion-col size="auto"></ion-col>
-          <ion-col size="auto"></ion-col>
-          <ion-col size="auto"></ion-col>
-          <ion-col size="auto"></ion-col>
-          <ion-col size="auto"></ion-col>
+        <ion-row class="ion-justify-content-end">
+          <ion-col size="auto">
+            <ion-icon name="home"></ion-icon>
+            <div>Home</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="people"></ion-icon>
+            <div>My Network</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="briefcase"></ion-icon>
+            <div>Jobs</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="chatbox-ellipses"></ion-icon>
+            <div>Messaging</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="notifications"></ion-icon>
+            <ion-badge class="notifications-badge">2</ion-badge>
+            <div>Notifications</div>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-avatar>
+              <ion-img src="../../../../assets/eu.jpg"></ion-img>
+            </ion-avatar>
+            <div>Me</div>
+          </ion-col>
         </ion-row>
       </ion-grid>
 
