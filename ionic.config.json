@@ -1,0 +1,7 @@
+{
+  "name": "linkedin-clone-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
