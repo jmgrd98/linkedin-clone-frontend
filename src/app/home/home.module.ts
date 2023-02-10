@@ -1,3 +1,4 @@
+import { PopoverComponent } from './components/header/popover/popover.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +16,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, HeaderComponent]
+  declarations: [HomePage, HeaderComponent, PopoverComponent]
 })
 export class HomePageModule {}

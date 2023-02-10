@@ -17,7 +17,9 @@ export class HeaderComponent implements OnInit {
   async presentPopover(e: Event) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
+      cssClass: 'my-custom-class',
       event: e,
+      showBackdrop: false
     });
 
     await popover.present();
