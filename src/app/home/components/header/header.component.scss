@@ -3,6 +3,7 @@
     padding: 10px;
     max-width: 1128px;
     margin: auto;
+    justify-content: space-around;
 }
 
 ion-header{
@@ -33,11 +34,7 @@ ion-icon{
 ion-col{
     width: 80px !important;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+    cursor: pointer;
 }
 
 ion-col div, ion-badge{
@@ -58,4 +55,5 @@ ion-col div, ion-badge{
 ion-avatar{
     width: 40px;
     height: 40px;
+    margin: auto;
 }

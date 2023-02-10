@@ -1,8 +1,8 @@
 <ion-header class="ion-container ion-no-border">
 
   <ion-toolbar class="toolbar-wrapper">
-    <div>
 
+    <div>
       <ion-buttons class="ion-no-padding" slot="start">
         <ion-button>
           <ion-icon
@@ -15,6 +15,7 @@
           placeholder="Search"></ion-searchbar>
         </ion-button>
       </ion-buttons>
+    </div>
 
       <ion-grid>
         <ion-row class="ion-justify-content-end">
@@ -39,16 +40,18 @@
             <ion-badge class="notifications-badge">2</ion-badge>
             <div>Notifications</div>
           </ion-col>
-          <ion-col size="auto">
+          <ion-col (click)="presentPopover($event)" size="auto">
             <ion-avatar>
               <ion-img src="../../../../assets/eu.jpg"></ion-img>
             </ion-avatar>
             <div>Me</div>
+            <ion-icon
+            name="caret-down-outline"
+            size="small"></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>
 
-    </div>
   </ion-toolbar>
 
 </ion-header>
