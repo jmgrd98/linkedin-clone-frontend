@@ -1,3 +1,41 @@
-<p>
-  modal works!
-</p>
+<ion-card>
+  <div class="heading ion-padding">
+    <ion-text>Create a post</ion-text>
+    <ion-button size="small" color="medium" fill="clear" shape="round">
+      <ion-icon slot="icon-only" size="large" name="close-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="item-divider"></div>
+
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-justify-content-start">
+      <ion-col size="auto">
+        <ion-avatar >
+          <ion-img src="../../../../../assets/eu.jpg"></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-text>João Marcelo Dantas</ion-text>
+        </div>
+
+        <ion-button size="small" shape="round" fill="outline" color="medium">
+          <ion-icon color="black" name="globe-outline"></ion-icon>
+          <ion-text class="view-status">Anyone</ion-text>
+          <ion-icon color="black" name="caret-down-outline"></ion-icon>
+        </ion-button>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form class="ion-padding">
+    <ion-textarea
+    rows="5"
+    placeholder="What do you want to talk about?"
+    type="text"
+    name="body"
+    required></ion-textarea>
+  </form>
+
+</ion-card>

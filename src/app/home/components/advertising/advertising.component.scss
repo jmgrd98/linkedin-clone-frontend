@@ -1,8 +1,10 @@
 ion-card{
     width: 315px;
+    padding: 10px;
 }
 
 ion-card-header{
+    padding-bottom: 8px;
     ion-text{
         display: flex;
         justify-content: space-between;
@@ -18,5 +20,20 @@ ion-card-header{
             font-weight: 600;
             margin-top: 0;
         }
+        ion-icon{
+            background-color: var(--ion-color-medium);
+            color: white;
+            border-radius: 100%;
+        }
     }
+}
+
+ion-card-content{
+    ion-text h6:not(.first-course){
+        margin-top: 8px;
+    }
+    h6{
+        font-weight: 500;
+    }
+
 }
