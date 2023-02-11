@@ -29,12 +29,13 @@
     </ion-row>
   </ion-grid>
 
-  <form class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="onPost()" class="ion-padding">
     <ion-textarea
     rows="5"
     placeholder="What do you want to talk about?"
     type="text"
     name="body"
+    ngModel
     required></ion-textarea>
 
     <ion-button fill="clear">Add hashtag</ion-button>
@@ -57,6 +58,8 @@
           <ion-icon class="ion-padding-none" name="chatbox-ellipses-outline"></ion-icon>
           <ion-text class="view-status">Anyone</ion-text>
         </ion-button>
+
+        <ion-button [disabled]="!form.valid" type="submit" class="ion-margin">Post</ion-button>
       </div>
     </div>
   </form>
