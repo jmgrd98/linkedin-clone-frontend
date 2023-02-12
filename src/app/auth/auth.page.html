@@ -1,12 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>auth</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div class="title-container">
-    <ion-text class="linkedin-text"></ion-text>
-    <ion-icon class="linkedin-icon" name="linkedin-logo"></ion-icon>
+    <ion-text color="primary" class="linkedin-text">Linked</ion-text>
+    <ion-icon class="linkedin-icon" name="logo-linkedin" color="primary"></ion-icon>
   </div>
+  <div class="subtitle-container">Make the most of your professional life</div>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit()"></form>
 </ion-content>
