@@ -9,7 +9,7 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  getSelectedPost(params){ 
+  getSelectedPost(params:any){ 
 
     return this.http.get<Post[]>('http://localhost:3000/api/feed' + params);
 
