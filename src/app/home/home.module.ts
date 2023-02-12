@@ -29,7 +29,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     StartPostComponent,
     ModalComponent,
     AdvertisingComponent,
-    AllPostsComponent
+    AllPostsComponent,
+    FormsModule
   ]
 })
 export class HomePageModule {}

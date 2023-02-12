@@ -1,28 +1,32 @@
-import { getTestBed } from '@angular/core/testing';
-import { IonInfiniteScroll } from '@ionic/angular';
+import { IonInfiniteScroll, InfiniteScrollCustomEvent, IonInfiniteScrollContent } from '@ionic/angular';
 import { PostService } from './../../services/post.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../models/Post';
+import { Event } from 'ionicons/dist/types/stencil-public-runtime';
 
 @Component({
   selector: 'app-all-posts',
   templateUrl: './all-posts.component.html',
   styleUrls: ['./all-posts.component.scss'],
 })
-export class AllPostsComponent implements OnInit {
+export class AllPostsComponent implements OnInit{
 
-  @ViewChild(IonInfiniteScroll) infiniteScroll:IonInfiniteScroll = {};
+  @ViewChild('infiniteScroll', {read: IonInfiniteScroll}) public infiniteScroll:IonInfiniteScroll;
 
   queryParams:string = '';
   allLoadedPosts: Post[] = [];
   numberOfPosts: number = 5;
   skipPosts: number = 0;
 
-  constructor(private postService:PostService) { }
+  constructor(
+    private postService:PostService,
+    ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPosts(false, event);
+  }
 
-  getPosts(event:any){
+  getPosts(isInitialLoad:boolean, event:any){
     if(this.skipPosts === 20){
       event.target.disabled = true;
     }
@@ -31,11 +35,15 @@ export class AllPostsComponent implements OnInit {
       for(let i = 0; i < posts.length; i++){
         this.allLoadedPosts.push(posts[i]);
       }
+      if(isInitialLoad) event.target.complete;
+      this.skipPosts = this.skipPosts + 5;
+    }, (error) => {
+      console.log(error);
     })
   }
 
   loadData(event:any){
-    return this.getPosts(event);
+    return this.getPosts(true, event);
   }
 
 }
