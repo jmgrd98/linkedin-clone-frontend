@@ -4,8 +4,9 @@
 
 .content-container{
   display: flex;
-  width: 1128px;
+  width: 100%;
+  gap: 20px;
   margin: 40px auto;
   padding: 0px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }

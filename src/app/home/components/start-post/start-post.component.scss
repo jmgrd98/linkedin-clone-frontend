@@ -1,11 +1,11 @@
 ion-card{
-    width: 525px;
-    padding: 10px;
+    width: 100%;
+    padding: 25px;
 }
 
 ion-card-header{
     display: flex;
-
+    margin-bottom: 20px;
 }
 
 ion-avatar{
@@ -29,5 +29,5 @@ ion-card-header{
 ion-card-content{
     display: flex;
     justify-content: space-between;
-    
+    padding-bottom: 0;
 }

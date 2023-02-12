@@ -1,3 +1,4 @@
+import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { AdvertisingComponent } from './components/advertising/advertising.component';
 import { ModalComponent } from './components/start-post/modal/modal.component';
 import { StartPostComponent } from './components/start-post/start-post.component';
@@ -27,7 +28,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     ProfileSummaryComponent,
     StartPostComponent,
     ModalComponent,
-    AdvertisingComponent
+    AdvertisingComponent,
+    AllPostsComponent
   ]
 })
 export class HomePageModule {}
