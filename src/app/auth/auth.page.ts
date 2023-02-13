@@ -21,4 +21,12 @@ export class AuthPage implements OnInit {
 
   }
 
+  toggleText(){
+    if(this.submissionType === 'login'){
+      this.submissionType = 'join';
+    } else if(this.submissionType === 'join'){
+      this.submissionType = 'login';
+    }
+  }
+
 }
