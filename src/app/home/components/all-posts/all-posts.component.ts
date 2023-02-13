@@ -11,7 +11,11 @@ import { Event } from 'ionicons/dist/types/stencil-public-runtime';
 })
 export class AllPostsComponent implements OnInit{
 
-  // @ViewChild('infiniteScroll', {read: IonInfiniteScroll}) public infiniteScroll:IonInfiniteScroll;
+  @ViewChild('infiniteScroll', {read: IonInfiniteScroll})
+    
+  // public infiniteScroll:IonInfiniteScroll
+
+
 
   queryParams:string = '';
   allLoadedPosts: Post[] = [];
@@ -23,7 +27,7 @@ export class AllPostsComponent implements OnInit{
     ) { }
 
   ngOnInit() {
-    this.getPosts(false, event);
+    this.getPosts(false, '');
   }
 
   getPosts(isInitialLoad:boolean, event:any){
@@ -35,7 +39,7 @@ export class AllPostsComponent implements OnInit{
       for(let i = 0; i < posts.length; i++){
         this.allLoadedPosts.push(posts[i]);
       }
-      if(isInitialLoad) event.target.complete;
+      if(isInitialLoad) event.target.complete();
       this.skipPosts = this.skipPosts + 5;
     }, (error) => {
       console.log(error);
@@ -43,7 +47,7 @@ export class AllPostsComponent implements OnInit{
   }
 
   loadData(event:any){
-    return this.getPosts(true, event);
+   this.getPosts(true, event);
   }
 
 }
