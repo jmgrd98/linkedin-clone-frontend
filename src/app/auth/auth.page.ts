@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class AuthPage implements OnInit {
 
-  // @ViewChild('form') form:NgForm;
+  @ViewChild('form') form:NgForm;
 
   submissionType: 'join' | 'login' = 'login';
 
@@ -18,7 +18,8 @@ export class AuthPage implements OnInit {
   }
 
   onSubmit(){
-
+    this.form.value.firstName
+    const { email, password } = this.form.value;
   }
 
   toggleText(){

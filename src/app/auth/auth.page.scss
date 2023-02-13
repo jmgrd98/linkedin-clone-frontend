@@ -27,3 +27,18 @@ ion-card{
     flex-direction: column;
     gap: 20px;
 }
+
+.toggle-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    ion-text{
+        font-weight: 500;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

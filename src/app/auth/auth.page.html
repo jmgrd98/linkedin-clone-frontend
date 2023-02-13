@@ -66,19 +66,13 @@
           {{ submissionType === 'login' ? 'Sign in' : 'Accept & Join' }}
         </ion-button>
 
-        <div class="toggle-text">
-          {{ submissionType === 'login' ? 'New to LinkedIn' : 'Already on LinkedIn' }}
-          <ion-text color="primary" (click)="toggleText()">
-            {{ submissionType === 'login' ? 'Join now' : 'Sign in' }}
-          </ion-text>
-        </div>
     </ion-card>
   </form>
 
-  <!-- <div class="toggle-text">
+  <div class="toggle-text">
     {{ submissionType === 'login' ? 'New to LinkedIn' : 'Already on LinkedIn' }}
     <ion-text color="primary" (click)="toggleText()">
       {{ submissionType === 'login' ? 'Join now' : 'Sign in' }}
     </ion-text>
-  </div> -->
+  </div>
 </ion-content>
