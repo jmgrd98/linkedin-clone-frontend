@@ -1,3 +1,4 @@
+import { TabsComponent } from './components/tabs/tabs.component';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { AdvertisingComponent } from './components/advertising/advertising.component';
 import { ModalComponent } from './components/start-post/modal/modal.component';
@@ -29,6 +30,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     ModalComponent,
     AdvertisingComponent,
     AllPostsComponent,
+    TabsComponent
   ]
 })
 export class HomePageModule {}
