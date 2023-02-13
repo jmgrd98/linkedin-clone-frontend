@@ -30,7 +30,7 @@
         <ion-text color="danger" *ngIf="lastNameInput.valid && lastNameInput.touched">Please enter your last name!</ion-text>
       </ng-container>
 
-      <ng-container *ngIf="submissionType === 'join'">
+
         <ion-item>
           <ion-label position="floating">Email</ion-label>
           <ion-input
@@ -39,7 +39,7 @@
           name="lastName" required></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="emailInput.valid && emailInput.touched">Please enter your email!</ion-text>
-      </ng-container>
+
 
 
         <ion-item >
@@ -65,13 +65,20 @@
         expand="block">
           {{ submissionType === 'login' ? 'Sign in' : 'Accept & Join' }}
         </ion-button>
+
+        <div class="toggle-text">
+          {{ submissionType === 'login' ? 'New to LinkedIn' : 'Already on LinkedIn' }}
+          <ion-text color="primary" (click)="toggleText()">
+            {{ submissionType === 'login' ? 'Join now' : 'Sign in' }}
+          </ion-text>
+        </div>
     </ion-card>
   </form>
 
-  <div class="toggle-text">
+  <!-- <div class="toggle-text">
     {{ submissionType === 'login' ? 'New to LinkedIn' : 'Already on LinkedIn' }}
     <ion-text color="primary" (click)="toggleText()">
       {{ submissionType === 'login' ? 'Join now' : 'Sign in' }}
     </ion-text>
-  </div>
+  </div> -->
 </ion-content>

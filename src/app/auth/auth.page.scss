@@ -17,7 +17,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 24px 16px;
         font-size: 30px;
         text-align: center;
+}
+
+ion-card{
+    margin: 100px 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
