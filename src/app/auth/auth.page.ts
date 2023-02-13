@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthPage implements OnInit {
 
+  submissionType = 'join';
+
   constructor() { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    
+
   }
 
 }
