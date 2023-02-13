@@ -58,9 +58,16 @@
         </p>
 
         <ion-button [disabled]="!form.valid" type="submit" shape="round" expand="block">
-          {{}}
+          {{ submissionType === 'login' ? 'Sign in' : 'Accept & Join' }}
         </ion-button>
       </ng-container>
     </ion-card>
   </form>
+
+  <div class="toggle-text">
+    {{ submissionType === 'login' ? 'New to LinkedIn' : 'Already on LinkedIn' }}
+    <ion-text color="primary">
+      {{ submissionType === 'login' ? 'Join now' : 'Sign in' }}
+    </ion-text>
+  </div>
 </ion-content>
