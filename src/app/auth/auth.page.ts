@@ -12,16 +12,17 @@ export class AuthPage implements OnInit {
 
   submissionType: 'join' | 'login' = 'login';
   form:FormGroup;
+  // passwordInput:FormControl;
   
 
   constructor(
     private formBuilder: FormBuilder,
   ) { 
     this.form = this.formBuilder.group({
-      firstNameInput: new FormControl(['', Validators.required]),
-      lastNameInput: new FormControl(['', Validators.required]),
-      emailInput: new FormControl(['', Validators.required, Validators.email]),
-      passwordInput: new FormControl(['', Validators.required])
+      firstNameInput: this.formBuilder.control('', Validators.required),
+      lastNameInput: this.formBuilder.control('', Validators.required),
+      emailInput: this.formBuilder.control('', Validators.required),
+      passwordInput: this.formBuilder.control('', Validators.required)
     })
   }
 

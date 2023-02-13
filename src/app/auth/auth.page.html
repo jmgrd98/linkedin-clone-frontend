@@ -17,7 +17,9 @@
           type="text"
           required></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="firstNameInput.valid && firstNameInput.touched">Please enter your first name!</ion-text>
+
+        <ion-text *ngIf="form.value.firstNameInput === ''" color="danger">Please enter your first name!</ion-text>
+
       </ng-container>
 
       <ng-container *ngIf="submissionType === 'join'">
@@ -29,7 +31,7 @@
           type="text"
           required></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="form.lastNameInput.valid && form.lastNameInput.touched">Please enter your last name!</ion-text>
+        <ion-text *ngIf="form.value.lastNameInput === ''" color="danger">Please enter your last name!</ion-text>
       </ng-container>
 
 
@@ -41,7 +43,7 @@
           type="email"
           required></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="emailInput.valid && emailInput.touched">Please enter your email!</ion-text>
+        <ion-text *ngIf="form.value.emailInput === ''" color="danger">Please enter your email!</ion-text>
 
 
 
@@ -53,7 +55,7 @@
           type="password"
           required></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="!passwordInput.valid && passwordInput.touched">Please enter your password!</ion-text>
+        <ion-text *ngIf="form.value.passwordInput === ''" color="danger">Please enter your password!</ion-text>
 
         <p *ngIf="submissionType === 'join'" class="terms-and-conditions">
           By clicking Agree & Join, you agree to the LinkedIn
