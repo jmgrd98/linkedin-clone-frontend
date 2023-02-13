@@ -12,9 +12,10 @@
         <ion-item>
           <ion-label position="floating">First name</ion-label>
           <ion-input
+          ngModel
           #firstNameInput="ngModel"
-          ngModel type="text"
-          name="firstName" required></ion-input>
+          type="text"
+          required></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="firstNameInput.valid && firstNameInput.touched">Please enter your first name!</ion-text>
       </ng-container>
@@ -23,9 +24,10 @@
         <ion-item>
           <ion-label position="floating">Last name</ion-label>
           <ion-input
+          ngModel
           #lastNameInput="ngModel"
-          ngModel type="text"
-          name="lastName" required></ion-input>
+          type="text"
+          required></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="lastNameInput.valid && lastNameInput.touched">Please enter your last name!</ion-text>
       </ng-container>
@@ -34,9 +36,10 @@
         <ion-item>
           <ion-label position="floating">Email</ion-label>
           <ion-input
+          ngModel
           #emailInput="ngModel"
-          ngModel type="email"
-          name="lastName" required></ion-input>
+          type="email"
+          required></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="emailInput.valid && emailInput.touched">Please enter your email!</ion-text>
 
@@ -45,9 +48,10 @@
         <ion-item >
           <ion-label position="floating">Password</ion-label>
           <ion-input
+          ngModel
           #passwordInput="ngModel"
-          ngModel type="password"
-          name="lastName" required></ion-input>
+          type="password"
+          required></ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="!passwordInput.valid && passwordInput.touched">Please enter your password!</ion-text>
 

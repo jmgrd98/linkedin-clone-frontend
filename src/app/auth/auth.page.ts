@@ -1,4 +1,4 @@
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators, NgModel } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -8,17 +8,28 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class AuthPage implements OnInit {
 
-  @ViewChild('form') form:NgForm;
+  // @ViewChild('form') form:FormGroup;
 
   submissionType: 'join' | 'login' = 'login';
+  form:FormGroup;
+  
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { 
+    this.form = this.formBuilder.group({
+      firstNameInput: ['', Validators.required],
+      lastNameInput: ['', Validators.required],
+      emailInput: ['', Validators.required, Validators.email],
+      passwordInput: ['', Validators.required]
+    })
+  }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    this.form.value.firstName
+    this.form
     const { email, password } = this.form.value;
   }
 
