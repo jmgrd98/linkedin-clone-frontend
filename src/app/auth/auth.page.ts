@@ -10,7 +10,7 @@ export class AuthPage implements OnInit {
 
   // @ViewChild('form') form:NgForm;
 
-  submissionType: 'join' | 'login' = 'login';
+  submissionType: 'join' | 'login' = 'join';
 
   constructor() { }
 
