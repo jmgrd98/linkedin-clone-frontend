@@ -1,4 +1,4 @@
-import { NgForm, FormGroup, FormBuilder, Validators, NgModel } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators, NgModel, FormControl } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -18,10 +18,10 @@ export class AuthPage implements OnInit {
     private formBuilder: FormBuilder,
   ) { 
     this.form = this.formBuilder.group({
-      firstNameInput: ['', Validators.required],
-      lastNameInput: ['', Validators.required],
-      emailInput: ['', Validators.required, Validators.email],
-      passwordInput: ['', Validators.required]
+      firstNameInput: new FormControl(['', Validators.required]),
+      lastNameInput: new FormControl(['', Validators.required]),
+      emailInput: new FormControl(['', Validators.required, Validators.email]),
+      passwordInput: new FormControl(['', Validators.required])
     })
   }
 
@@ -29,8 +29,19 @@ export class AuthPage implements OnInit {
   }
 
   onSubmit(){
-    this.form
-    const { email, password } = this.form.value;
+    const password  = this.form.value.passwordInput;
+    const email = this.form.value.emailInput;
+    const firstName = this.form.value.firstNameInput;
+    const lastName = this.form.value.lastNameInput;
+    
+    if(!email || !password) return;
+
+    if(this.submissionType === 'login'){
+      console.log('handle login', email, password);
+    } else if(this.submissionType === 'join'){
+      if(!firstName || !lastName) return;
+      console.log('handle join', email, password, firstName, lastName);
+    }
   }
 
   toggleText(){

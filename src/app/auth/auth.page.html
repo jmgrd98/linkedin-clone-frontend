@@ -5,15 +5,15 @@
   </div>
   <div class="subtitle-container">Make the most of your professional life</div>
 
-  <form #form="ngForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
     <ion-card>
       <ng-container *ngIf="submissionType === 'join'">
         <ion-item>
           <ion-label position="floating">First name</ion-label>
           <ion-input
-          ngModel
-          #firstNameInput="ngModel"
+          ngModel firstNameInput
+          formControlName="firstNameInput"
           type="text"
           required></ion-input>
         </ion-item>
@@ -24,20 +24,20 @@
         <ion-item>
           <ion-label position="floating">Last name</ion-label>
           <ion-input
-          ngModel
-          #lastNameInput="ngModel"
+          ngModel lastNameInput
+          formControlName="lastNameInput"
           type="text"
           required></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="lastNameInput.valid && lastNameInput.touched">Please enter your last name!</ion-text>
+        <ion-text color="danger" *ngIf="form.lastNameInput.valid && form.lastNameInput.touched">Please enter your last name!</ion-text>
       </ng-container>
 
 
         <ion-item>
           <ion-label position="floating">Email</ion-label>
           <ion-input
-          ngModel
-          #emailInput="ngModel"
+          ngModel emailInput
+          formControlName="emailInput"
           type="email"
           required></ion-input>
         </ion-item>
@@ -48,8 +48,8 @@
         <ion-item >
           <ion-label position="floating">Password</ion-label>
           <ion-input
-          ngModel
-          #passwordInput="ngModel"
+          ngModel passwordInput
+          formControlName="passwordInput"
           type="password"
           required></ion-input>
         </ion-item>
