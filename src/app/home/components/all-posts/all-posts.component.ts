@@ -12,10 +12,6 @@ import { Event } from 'ionicons/dist/types/stencil-public-runtime';
 export class AllPostsComponent implements OnInit{
 
   @ViewChild('infiniteScroll', {read: IonInfiniteScroll})
-    
-  // public infiniteScroll:IonInfiniteScroll
-
-
 
   queryParams:string = '';
   allLoadedPosts: Post[] = [];
