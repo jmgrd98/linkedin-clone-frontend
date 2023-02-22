@@ -6,6 +6,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {Plugins} from "@capacitor/core";
+import {UserResponse} from "../models/UserResponse";
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +33,8 @@ export class AuthService {
       `${environment.baseApiUrl}/auth/login`, {email, password }, this.httpOptions
     ).pipe(take(1),
       tap((response: { token: string }) => {
-        Plugins.Storage.set({
-          key: 'token',
-          value: response.token
-        });
+        localStorage.setItem('token', response.token);
+        const decodedToken: UserResponse = jwt_decode(response.token);
       }));
   }
 }
