@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {NewUser} from "../models/newUser";
-import {Observable, take} from "rxjs";
+import {Observable, take, tap} from "rxjs";
 import {User} from "../models/User";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
+import {Plugins} from "@capacitor/core";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,12 @@ export class AuthService {
   login(email: string, password: string): Observable<{ token: string }> {
     return this.http.post<{ token: string }> (
       `${environment.baseApiUrl}/auth/login`, {email, password }, this.httpOptions
-    ).pipe(take(1));
+    ).pipe(take(1),
+      tap((response: { token: string }) => {
+        Plugins.Storage.set({
+          key: 'token',
+          value: response.token
+        });
+      }));
   }
 }
