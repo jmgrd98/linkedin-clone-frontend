@@ -38,15 +38,22 @@ export class AuthPage implements OnInit {
     const firstName = this.form.value.firstNameInput;
     const lastName = this.form.value.lastNameInput;
 
+    return;
+
     if(!email || !password) return;
 
     if(this.submissionType === 'login'){
       console.log('handle login', email, password);
+      return;
     } else if(this.submissionType === 'join'){
+      const { firstName, lastName } = this.form.value;
+      return;
       if(!firstName || !lastName) return;
-      console.log('handle join', email, password, firstName, lastName);
+      // console.log('handle join', email, password, firstName, lastName);
       const newUser: NewUser = { firstName, lastName, email, password };
-      return this.authService.register(newUser);
+      return this.authService.register(newUser).subscribe(() => {
+        this.toggleText();
+      });
     }
   }
 
