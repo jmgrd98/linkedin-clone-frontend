@@ -14,24 +14,24 @@ import {AuthService} from "../services/auth.service";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanLoad {
+export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {
   }
-  canLoad(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     return this.authService.isUserLoggedIn.pipe(
       take(1),
-      switchMap((isUserLoggedIn: boolean) => {
-        if (isUserLoggedIn) {
-          return of(isUserLoggedIn);
-        }
-      }),
+      // switchMap((isUserLoggedIn: boolean) => {
+      //   if (isUserLoggedIn) {
+      //     return of(isUserLoggedIn);
+      //   }
+      //   return;
+      // }),
       tap((isUserLoggedIn: boolean) => {
         if (!isUserLoggedIn) {
-          return this.router.navigateByUrl('/auth');
+          this.router.navigateByUrl('/auth');
         }
-        this.router.navigateByUrl('/auth');
         console.log(isUserLoggedIn);
       })
     );
