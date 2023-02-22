@@ -14,7 +14,6 @@ export class PopoverComponent implements OnInit {
 
   onSignOut(){
     this.authService.logout();
-    console.log('onSignOut() called!');
   }
 
 }
