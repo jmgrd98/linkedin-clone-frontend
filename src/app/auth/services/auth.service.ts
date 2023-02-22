@@ -58,4 +58,11 @@ export class AuthService {
         this.user$.next(decodedToken.user);
       }));
   }
+
+  logout(): void {
+    // @ts-ignore
+    this.user$.next(null);
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/auth');
+  }
 }
