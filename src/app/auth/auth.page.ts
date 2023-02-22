@@ -13,6 +13,7 @@ export class AuthPage implements OnInit {
   submissionType: 'join' | 'login' = 'login';
   form:FormGroup;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -29,10 +30,10 @@ export class AuthPage implements OnInit {
   }
 
   onSubmit(){
-    const password  = this.form.value.passwordInput;
-    const email = this.form.value.emailInput;
-    const firstName = this.form.value.firstNameInput;
-    const lastName = this.form.value.lastNameInput;
+    const password: string  = this.form.value.passwordInput;
+    const email: string = this.form.value.emailInput;
+    const firstName: string = this.form.value.firstNameInput;
+    const lastName: string = this.form.value.lastNameInput;
 
     console.log(this);
     console.log(this.form);
@@ -40,8 +41,9 @@ export class AuthPage implements OnInit {
     // return;
     // if(!email || !password) return;
     if(this.submissionType === 'login'){
-      console.log('handle login', email, password);
-      return;
+      return this.authService.login(email, password).subscribe(() => {
+        this.router.navigateByUrl('/home');
+      })
     } else if(this.submissionType === 'join'){
       // const { firstName, lastName } = this.form.value;
 

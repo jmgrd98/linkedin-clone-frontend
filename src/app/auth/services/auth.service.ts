@@ -56,6 +56,7 @@ export class AuthService {
         localStorage.setItem('token', response.token);
         const decodedToken: UserResponse = jwt_decode(response.token);
         this.user$.next(decodedToken.user);
+        this.router.navigateByUrl('/home');
       }));
   }
 }
