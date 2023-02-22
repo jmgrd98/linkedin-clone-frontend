@@ -42,11 +42,9 @@ export class AuthPage implements OnInit {
     // if(!email || !password) return;
     if(this.submissionType === 'login'){
       return this.authService.login(email, password).subscribe(() => {
-        this.router.navigateByUrl('/home');
+        this.router.navigate(['/home']);
       })
     } else if(this.submissionType === 'join'){
-      // const { firstName, lastName } = this.form.value;
-
       console.log(firstName, lastName);
       if(!firstName || !lastName) return;
       console.log('handle join', email, password, firstName, lastName);
