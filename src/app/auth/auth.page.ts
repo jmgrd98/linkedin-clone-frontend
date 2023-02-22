@@ -1,7 +1,8 @@
 import { NgForm, FormGroup, FormBuilder, Validators, NgModel, FormControl } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {AuthService} from "./services/auth.service";
-import {NewUser} from "../home/models/newUser";
+import {NewUser} from "./models/newUser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auth',
@@ -9,13 +10,8 @@ import {NewUser} from "../home/models/newUser";
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-
-  // @ViewChild('form') form:FormGroup;
-
   submissionType: 'join' | 'login' = 'login';
   form:FormGroup;
-  // passwordInput:FormControl;
-
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,23 +34,27 @@ export class AuthPage implements OnInit {
     const firstName = this.form.value.firstNameInput;
     const lastName = this.form.value.lastNameInput;
 
-    return;
+    console.log(this);
+    console.log(this.form);
 
-    if(!email || !password) return;
-
+    // return;
+    // if(!email || !password) return;
     if(this.submissionType === 'login'){
       console.log('handle login', email, password);
       return;
     } else if(this.submissionType === 'join'){
-      const { firstName, lastName } = this.form.value;
-      return;
+      // const { firstName, lastName } = this.form.value;
+
+      console.log(firstName, lastName);
       if(!firstName || !lastName) return;
-      // console.log('handle join', email, password, firstName, lastName);
+      console.log('handle join', email, password, firstName, lastName);
       const newUser: NewUser = { firstName, lastName, email, password };
       return this.authService.register(newUser).subscribe(() => {
         this.toggleText();
+        this.router.navigate(['/join']);
       });
     }
+      return;
   }
 
   toggleText(){
