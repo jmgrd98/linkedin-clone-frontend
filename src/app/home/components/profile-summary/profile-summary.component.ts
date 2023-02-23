@@ -24,8 +24,28 @@ export class ProfileSummaryComponent implements OnInit {
 
   ngOnInit() {
     this.authService.userRole.pipe(take(1)).subscribe((role: Role) => {
-
+      this.bannerColors = this.getBannerColors(role);
     })
   }
 
+  private getBannerColors(role: Role): BannerColors {
+    switch (role){
+      case 'admin':
+        return {
+          colorOne: '#daa520',
+          colorTwo: '#f0e68c',
+          colorThree: '#fafad2'
+        }
+        break;
+      case 'premium':
+        return {
+          colorOne: '#bc8f8f',
+          colorTwo: '#c09999',
+          colorThree: '#ddadaf'
+        }
+        break;
+      default:
+      return this.bannerColors;
+    }
+  }
 }
