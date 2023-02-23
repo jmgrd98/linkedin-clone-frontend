@@ -52,7 +52,7 @@
           type="password"
           required></ion-input>
         </ion-item>
-        <ion-text *ngIf="form.value.passwordInput === ''" color="danger">Please enter your password!</ion-text>
+        <ion-text *ngIf="form.value.passwordInput.touched && form.value.passwordInput === ''" color="danger">Please enter your password!</ion-text>
 
         <p *ngIf="submissionType === 'join'" class="terms-and-conditions">
           By clicking Agree & Join, you agree to the LinkedIn
@@ -62,7 +62,7 @@
         </p>
 
         <ion-button
-        [disabled]="!form.valid"
+        [disabled]="!form.value.emailInput && !form.value.passwordInput"
         type="submit"
         shape="round"
         expand="block">

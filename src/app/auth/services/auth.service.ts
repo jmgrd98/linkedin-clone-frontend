@@ -5,9 +5,9 @@ import {Role, User} from "../models/User";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
-import {Plugins} from "@capacitor/core";
 import {UserResponse} from "../models/UserResponse";
 import jwt_decode from 'jwt-decode';
+import {AuthPage} from "../auth.page";
 
 @Injectable({
   providedIn: 'root'
@@ -39,13 +39,15 @@ export class AuthService {
   }
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
   ) { }
 
   register(newUser: NewUser): Observable<User> {
+    // this.router.navigateByUrl('/home');
     return this.http.post<User>(
       `${environment.baseApiUrl}/auth/register`, newUser, this.httpOptions
     ).pipe(take(1));
+
   }
 
   login(email: string, password: string): Observable<{ token: string }> {

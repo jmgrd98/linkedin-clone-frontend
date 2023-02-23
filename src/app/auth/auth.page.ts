@@ -35,16 +35,20 @@ export class AuthPage implements OnInit {
     const firstName: string = this.form.value.firstNameInput;
     const lastName: string = this.form.value.lastNameInput;
 
-    // return;
     if(!email || !password) return;
+
     if(this.submissionType === 'login'){
       return this.authService.login(email, password).subscribe(() => {
         this.router.navigate(['/home']);
         console.log('handle login', email, password);
       })
-    } else if(this.submissionType === 'join'){
+    }
+
+    else if(this.submissionType === 'join'){
       console.log(firstName, lastName);
+
       if(!firstName || !lastName) return;
+
       console.log('handle join', email, password, firstName, lastName);
       const newUser: NewUser = { firstName, lastName, email, password };
       return this.authService.register(newUser).subscribe(() => {
