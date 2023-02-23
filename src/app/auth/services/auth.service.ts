@@ -61,7 +61,7 @@ export class AuthService {
       }));
   }
 
-  isTokenInStorage(): Observable<null> {
+  isTokenInStorage(): Observable<boolean> {
     // @ts-ignore
     return from(localStorage.getItem('token'))
       .pipe(
@@ -70,10 +70,12 @@ export class AuthService {
           const decodedToken: UserResponse = jwt_decode(data.value);
           const jwtExpiration = decodedToken.exp * 1000;
           const isExpired = new Date() > new Date(jwtExpiration);
-          if(isExpired) return;
+          if(isExpired) return null;
           if(decodedToken.user) {
             this.user$.next(decodedToken.user);
+            return true;
           }
+          return jwtExpiration;
         })
       )
   }
