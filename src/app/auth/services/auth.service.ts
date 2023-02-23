@@ -59,6 +59,10 @@ export class AuthService {
       }));
   }
 
+  // isTokenInStorage(): Observable<boolean> {
+  //   from(localStorage.getItem('token'));
+  // }
+
   logout(): void {
     // @ts-ignore
     this.user$.next(null);
