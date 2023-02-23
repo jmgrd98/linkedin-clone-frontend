@@ -35,15 +35,12 @@ export class AuthPage implements OnInit {
     const firstName: string = this.form.value.firstNameInput;
     const lastName: string = this.form.value.lastNameInput;
 
-    console.log(this);
-    console.log(this.form);
-
     // return;
     if(!email || !password) return;
     if(this.submissionType === 'login'){
       return this.authService.login(email, password).subscribe(() => {
         this.router.navigate(['/home']);
-        console.log('handle join', email, password);
+        console.log('handle login', email, password);
       })
     } else if(this.submissionType === 'join'){
       console.log(firstName, lastName);
@@ -52,7 +49,7 @@ export class AuthPage implements OnInit {
       const newUser: NewUser = { firstName, lastName, email, password };
       return this.authService.register(newUser).subscribe(() => {
         this.toggleText();
-        this.router.navigate(['/join']);
+        // this.router.navigate(['/home']);
       });
     }
       return;
