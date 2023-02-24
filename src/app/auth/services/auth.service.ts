@@ -75,7 +75,7 @@ export class AuthService {
             this.user$.next(decodedToken.user);
             return true;
           }
-          return jwtExpiration;
+          return null;
         })
       )
   }
