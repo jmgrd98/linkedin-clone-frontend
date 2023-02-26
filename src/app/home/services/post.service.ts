@@ -35,4 +35,11 @@ export class PostService {
       );
   }
 
+  deletePost(postId: number) {
+    return this.http.delete<Post>(`${environment.baseApiUrl}/feed${postId}`, this.httpOptions)
+      .pipe(
+        take(1)
+      );
+  }
+
 }
