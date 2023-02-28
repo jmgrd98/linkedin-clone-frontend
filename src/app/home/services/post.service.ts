@@ -18,7 +18,7 @@ export class PostService {
   getSelectedPost(params:any){
 
     return this.http.get<Post[]>(
-      `${environment.baseApiUrl}/feed${params}`);
+      `${environment.baseApiUrl}/feed/select${params}`);
   }
 
   createPost(body: string) {
