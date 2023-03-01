@@ -7,7 +7,6 @@ import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {UserResponse} from "../models/UserResponse";
 import jwt_decode from 'jwt-decode';
-import {AuthPage} from "../auth.page";
 
 @Injectable({
   providedIn: 'root'

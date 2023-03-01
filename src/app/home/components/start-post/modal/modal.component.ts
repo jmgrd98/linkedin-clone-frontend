@@ -14,7 +14,7 @@ export class ModalComponent implements OnInit {
   constructor(
     public modalController:ModalController,
     public fb: FormBuilder,
-    ) { 
+    ) {
 
       this.form = fb.group({
         title: fb.control('', Validators.required)
@@ -30,7 +30,6 @@ export class ModalComponent implements OnInit {
     this.modalController.dismiss({
       post: {
         body,
-        createdAt: new Date(),
       },
      },
      'post'
