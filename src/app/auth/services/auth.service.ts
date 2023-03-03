@@ -50,10 +50,12 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<{ token: string }> {
+    console.log('te');
     return this.http.post<{ token: string }> (
       `${environment.baseApiUrl}/auth/login`, {email, password }, this.httpOptions
     ).pipe(take(1),
       tap((response: { token: string }) => {
+        console.log('aqui');
         localStorage.setItem('token', response.token);
         const decodedToken: UserResponse = jwt_decode(response.token);
         this.user$.next(decodedToken.user);
