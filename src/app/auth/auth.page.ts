@@ -14,6 +14,7 @@ export class AuthPage implements OnInit {
   form:FormGroup;
 
 
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
