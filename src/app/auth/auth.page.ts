@@ -53,7 +53,6 @@ export class AuthPage implements OnInit {
       const newUser: NewUser = { firstName, lastName, email, password };
       return this.authService.register(newUser).subscribe(() => {
         this.toggleText();
-        // this.router.navigate(['/home']);
       });
     }
       return;
