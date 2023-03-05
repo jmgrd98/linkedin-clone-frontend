@@ -18,6 +18,7 @@ export class AuthPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private router: Router
   ) {
     this.form = this.formBuilder.group({
       firstNameInput: this.formBuilder.control('', Validators.required),
